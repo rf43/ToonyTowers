@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 5e286838775efa6429f9525133f1717b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Scripts/FollowTarget.cs
+  uploadId: 432756

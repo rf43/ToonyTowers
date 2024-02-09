@@ -1,7 +1,9 @@
 {
     "name": "ToonyTowers",
     "rootNamespace": "ToonyTowers",
-    "references": [],
+    "references": [
+        "GUID:01be9060ef4a8480b85afebb9a8bac1b"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

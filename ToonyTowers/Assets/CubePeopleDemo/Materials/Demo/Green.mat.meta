@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: efbc67a18a0c61840bf1f762c2c250c5
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Materials/Demo/Green.mat
+  uploadId: 432756

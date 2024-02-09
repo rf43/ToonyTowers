@@ -12,9 +12,9 @@ namespace ToonyTowers.StateMachine
     public class Machine
     {
         private IState _currentState;
-        private Dictionary<Type, List<Transition>> _transitions = new();
+        private readonly Dictionary<Type, List<Transition>> _transitions = new();
         private List<Transition> _currentTransitions = new();
-        private List<Transition> _anyTransitions = new();
+        private readonly List<Transition> _anyTransitions = new();
         private static readonly List<Transition> EmptyTransitions = new(0);
 
         /// <summary>

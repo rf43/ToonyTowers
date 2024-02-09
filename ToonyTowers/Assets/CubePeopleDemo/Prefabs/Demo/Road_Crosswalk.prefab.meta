@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e001c27e96061ee42a044393d783db32
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Prefabs/Demo/Road_Crosswalk.prefab
+  uploadId: 432756

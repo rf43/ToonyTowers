@@ -1,0 +1,18 @@
+fileFormatVersion: 2
+guid: 262da11d95041f04c9183f639fb25d94
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Scripts/CubePeopleTraffic.cs
+  uploadId: 432756

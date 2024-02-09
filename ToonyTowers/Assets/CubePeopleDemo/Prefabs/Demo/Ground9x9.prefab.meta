@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 556ca040dbf613b47b3f7173ed86f19c
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Prefabs/Demo/Ground9x9.prefab
+  uploadId: 432756

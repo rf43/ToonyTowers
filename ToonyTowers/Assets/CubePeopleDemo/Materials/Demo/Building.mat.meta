@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 77a89006588e824459a41efc7a2898d0
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Materials/Demo/Building.mat
+  uploadId: 432756

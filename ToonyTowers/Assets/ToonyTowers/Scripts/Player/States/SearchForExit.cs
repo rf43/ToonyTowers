@@ -3,27 +3,34 @@ using UnityEngine;
 
 namespace ToonyTowers.Player.States
 {
-    public class SearchForTarget : BaseState<TheThing>
+
+    public class SearchForExit : BaseState<TheThing>
     {
         private Waypoint.Waypoint[] _waypoints;
         
-        public SearchForTarget(TheThing owner) : base(owner) { }
-        
+        public SearchForExit(TheThing owner) : base(owner) { }
+
         public override void OnEnter()
         {
+            Debug.Log("SearchForExit::OnEnter");
             _waypoints = Object.FindObjectsByType<Waypoint.Waypoint>(FindObjectsSortMode.None);
         }
 
         public override void Tick()
         {
-            Owner.Target = FindNewTarget();
+            FindExit();
         }
-        
+
         public override void OnExit() { }
         
-        private Waypoint.Waypoint FindNewTarget()
+        private void FindExit()
         {
-            return _waypoints[Random.Range(0, _waypoints.Length)];
+            foreach (var waypoint in _waypoints)
+            {
+                if (waypoint.Config.Type != Waypoint.WaypointType.Exit) continue;
+                Owner.Target = waypoint;
+                return;
+            }
         }
     }
 }

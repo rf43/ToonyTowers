@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c71e669a8f8c51d44b62eb0e7f095972
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Materials/Eff/Fx_Tail.mat
+  uploadId: 432756

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ea9f5ee1882006644944ac42a1b7f868
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Prefabs/DemoPlayer00.prefab
+  uploadId: 432756

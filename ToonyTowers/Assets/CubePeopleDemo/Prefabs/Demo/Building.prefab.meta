@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c438ee57b54e1c4438eb35ee9258fe19
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 193803
+  packageName: Cube People - Demo
+  packageVersion: 1.0
+  assetPath: Assets/CubePeopleDemo/Prefabs/Demo/Building.prefab
+  uploadId: 432756

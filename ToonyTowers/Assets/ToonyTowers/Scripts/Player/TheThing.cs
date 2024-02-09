@@ -1,39 +1,77 @@
+using System.Collections.Generic;
 using ToonyTowers.Player.States;
 using ToonyTowers.StateMachine;
 using ToonyTowers.StateMachine.Predicates;
 using ToonyTowers.StateMachine.States;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace ToonyTowers.Player
 {
     [AddComponentMenu("ToonyTowers/Player/The Thing")]
     public class TheThing : MonoBehaviour
     {
-        [field: SerializeField] public float Speed { get; private set; } = 5.0f;
+        [Header("Movement Settings")]
+        [field: SerializeField] public float MinimumSpeed { get; private set; } = 0.5f;
+        [field: SerializeField] public float MaximumSpeed { get; private set; } = 1.5f;
+
+        [Header("Other Settings")]
         [SerializeField] private float _minDistance = 0.1f;
+        [SerializeField] private List<GameObject> _prefabs;
 
         public Waypoint.Waypoint Target { get; set; }
-        public Transform Transform { get; private set; }
 
+        private Transform _transform;
         private Machine _stateMachine;
+        private NavMeshAgent _navMeshAgent;
+        private Animator _animator;
 
         #region Unity Lifecycle
 
         private void Awake()
         {
-            Transform = transform;
+            _transform = transform;
             _stateMachine = new Machine();
+            _navMeshAgent = GetComponent<NavMeshAgent>();
+            
+            // Instantiate a random prefab as a child of the game object
+            var randomIndex = Random.Range(0, _prefabs.Count);
+            var prefab = Instantiate(_prefabs[randomIndex], _transform);
+            _animator = prefab.GetComponent<Animator>();
+            
+            var initialState = InitState();
+            _stateMachine.SetState(initialState);
+        }
 
-            var searchForTarget = new SearchForTarget(this);
-            var moveToSelectedWaypoint = new MoveToSelectedWaypoint(this);
+        private void Update()
+        {
+            _stateMachine.Tick();
+        }
 
-            At(searchForTarget, moveToSelectedWaypoint, HasTarget());
-            At(moveToSelectedWaypoint, searchForTarget, HasReachedTarget());
+        private IState InitState()
+        {
+            if (_stateMachine == null)
+            {
+                throw new MissingReferenceException("State machine is not initialized");
+            }
+            
+            var searchForEntrance = new SearchForEntrance(this);
+            var searchForExit = new SearchForExit(this);
+            var determineNextWaypoint = new DetermineNextWaypoint(this);
+            var moveToSelectedWaypoint = new MoveToSelectedWaypoint(this, _navMeshAgent, _animator);
+            var leaveGame = new LeaveGame(this);
 
-            _stateMachine.SetState(searchForTarget);
+            At(searchForEntrance, moveToSelectedWaypoint, HasTarget());
+            At(moveToSelectedWaypoint, determineNextWaypoint, HasReachedTarget());
+            At(determineNextWaypoint, moveToSelectedWaypoint, HasTarget());
+            At(moveToSelectedWaypoint, searchForExit, HasReachedTarget());
+            At(searchForExit, moveToSelectedWaypoint, HasTarget());
+            At(moveToSelectedWaypoint, leaveGame, HasReachedTarget());
+
+            return searchForEntrance;
             
             #region Add Transition Functions
-            
+
             void At(IState to, IState from, IPredicate condition) =>
                 _stateMachine.AddTransition(to, from, condition);
 
@@ -41,26 +79,19 @@ namespace ToonyTowers.Player
                 _stateMachine.AddAnyTransition(to, condition);
 
             #endregion
-            
+
             #region Predicates
-            
-            ActionPredicate HasTarget() => new(
-                predicate: () => Target != null,
-                action: () => Target.Renderer.material.color = Color.green
+
+            FuncPredicate HasTarget() => new(
+                predicate: () => Target != null
             );
 
-            ActionPredicate HasReachedTarget() => new(
+            FuncPredicate HasReachedTarget() => new(
                 predicate: () => Target != null
-                                 && Vector3.Distance(Transform.position, Target.transform.position) < _minDistance,
-                action: () => Target.Renderer.material.color = Color.red
+                                 && Vector3.Distance(_transform.position, Target.transform.position) < _minDistance
             );
 
             #endregion
-        }
-
-        private void Update()
-        {
-            _stateMachine.Tick();
         }
 
         #endregion
